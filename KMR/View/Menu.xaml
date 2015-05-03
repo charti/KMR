@@ -1,0 +1,22 @@
+﻿<UserControl
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:local="clr-namespace:KMR" x:Name="userControl"
+             x:Class="KMR.Menu" Width="{DynamicResource breite}" Height="{DynamicResource hoehe}"
+             >
+    <!--TODO:
+        Alignment fixen-->
+    <DockPanel LastChildFill="True" VerticalAlignment="Stretch">
+        <Label DockPanel.Dock="Top" Height="50" Background="Black"/>
+        <StackPanel>
+            <Label Content="Kostenmietenrechner"
+				FontSize="37"
+				FontWeight="Bold"
+				HorizontalAlignment="Center"
+				Margin="0,100,0,0"/>
+            <Label Content="wirtschaftliche Kaltmiete - Wohnen kostet"
+				FontSize="29"
+				FontFamily="Calibri Light"
+				HorizontalAlignment="Center"/>
+        </StackPanel>
+    </DockPanel>
+</UserControl>

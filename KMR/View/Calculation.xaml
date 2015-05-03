@@ -1,0 +1,10 @@
+﻿<UserControl
+    x:Class="KMR.Calculation"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <StackPanel Background="AliceBlue">
+        <Label Content="Seite 2"/>
+        <TextBox Text="{Binding Path=Eigenschaft, Mode=TwoWay}"/>
+        <Button Width="200" x:Name="next" Content="Seite 1" Click="next_Click"/>
+    </StackPanel>
+</UserControl>

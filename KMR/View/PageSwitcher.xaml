@@ -1,0 +1,8 @@
+﻿<Window x:Class="KMR.PageSwitcher"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Kostenmiete"
+        Width="1006" Height="728"
+        HorizontalContentAlignment="Stretch"
+        VerticalContentAlignment="Stretch">    
+</Window>

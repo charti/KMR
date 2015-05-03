@@ -16,13 +16,23 @@ using System.Windows.Shapes;
 namespace KMR
 {
     /// <summary>
-    /// Interaktionslogik für MainWindow.xaml
+    /// Interaction logic for Window1.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class Menu : UserControl, ISwitchable
     {
-        public MainWindow()
+        public Menu()
         {
             InitializeComponent();
+        }
+
+        public void UtilizeState(object state)
+        {
+            throw new NotImplementedException();
+        }
+
+        private void next_Click(object sender, RoutedEventArgs e)
+        {
+            Switcher.Switch(typeof(Calculation));
         }
     }
 }
