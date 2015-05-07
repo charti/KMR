@@ -16,23 +16,13 @@ using System.Windows.Shapes;
 namespace KMR
 {
     /// <summary>
-    /// Interaction logic for Window1.xaml
+    /// Interaktionslogik für SubstanceLabels.xaml
     /// </summary>
-    public partial class Menu : UserControl, ISwitchable
+    public partial class SubstanceLabels : UserControl
     {
-        public Menu()
+        public SubstanceLabels()
         {
-            InitializeComponent();            
-        }
-
-        public void UtilizeState(object state)
-        {
-            throw new NotImplementedException();
-        }
-
-        private void click_ButtonCalculation(object sender, RoutedEventArgs e)
-        {
-            Switcher.Switch(typeof(Calculation));
+            InitializeComponent();
         }
     }
 }

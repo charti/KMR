@@ -7,10 +7,14 @@ using System.Threading.Tasks;
 
 namespace KMR.Control
 {
-    public class Datalink : INotifyPropertyChanged
+    public class DataLink : INotifyPropertyChanged
     {
         private string _member = "TESTSTRING";
 
+        public double this[string key]
+        {
+            get { return 20; }
+        }
         public string Eigenschaft
         {
             get { return _member; }
@@ -29,6 +33,19 @@ namespace KMR.Control
             {
                 PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
             }
+        }
+    }
+
+    public class MyDict : Dictionary<string, double>
+    {
+        public MyDict()
+        {
+
+        }
+
+        public double this[string key]
+        {
+            get { return this[key]; }
         }
     }
 }

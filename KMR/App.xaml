@@ -6,8 +6,7 @@
              StartupUri="View/PageSwitcher.xaml">
     <Application.Resources>
         <Style TargetType="{x:Type Window}">
-            <Setter Property="FontFamily"
-            Value="Calibri" />
+            <Setter Property="FontFamily" Value="Calibri" />
             <Setter Property="Background">
                 <Setter.Value>
                     <LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,1">
@@ -17,8 +16,21 @@
                 </Setter.Value>
             </Setter>
         </Style>
-        <System:Double x:Key="breite">1006</System:Double>
-        <System:Double x:Key="hoehe">728</System:Double>
+        <Style x:Key="CalcCaptions" TargetType="Label">
+            <Setter Property="Height" Value="23"/>
+            <Setter Property="Padding" Value="0"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="Padding" Value="5,0"/>
+            <Setter Property="Background" Value="White" />
+            <Setter Property="FontFamily" Value="Calibri" />
+            <Setter Property="FontSize" Value="13"/>
+            <Setter Property="BorderBrush" Value="Black"/>
+            <Setter Property="BorderThickness" Value="1"/>
+        </Style>
+        <Style x:Key="CalcCaptionsBold" TargetType="Label"
+               BasedOn="{StaticResource ResourceKey=CalcCaptions}">
+            <Setter Property="FontWeight" Value="Bold"/>
+        </Style>
     </Application.Resources>
     <Application.MainWindow>
         <local:PageSwitcher/>

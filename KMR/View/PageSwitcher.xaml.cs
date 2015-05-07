@@ -20,7 +20,7 @@ namespace KMR
     /// </summary>
     public partial class PageSwitcher : Window
     {
-        private Control.Datalink _prop = new Control.Datalink();
+        private Control.DataLink _prop = new Control.DataLink();
         public PageSwitcher()
         {
             InitializeComponent();
@@ -31,12 +31,12 @@ namespace KMR
         public void Navigate(UserControl nextPage)
         {
             nextPage.DataContext = _prop;
-            this.Content = nextPage;
+            Content = nextPage;
         }
  
         public void Navigate(UserControl nextPage, object state)
         {
-            this.Content = nextPage;
+            Content = nextPage;
             ISwitchable s = nextPage as ISwitchable;
  
             if (s != null)

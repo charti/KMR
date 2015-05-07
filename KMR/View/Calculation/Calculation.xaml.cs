@@ -32,7 +32,6 @@ namespace KMR
 
         private void next_Click(object sender, RoutedEventArgs e)
         {
-            //Switcher.Switch(typeof(Menu));
             Switcher.Switch(typeof(Menu));
         }
     }
