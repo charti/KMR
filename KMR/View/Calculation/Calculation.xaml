@@ -18,11 +18,17 @@
         <ScrollViewer VerticalScrollBarVisibility="Auto">
             <Grid>
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="514*"></ColumnDefinition>
-                    <ColumnDefinition Width="486*"></ColumnDefinition>
+                    <ColumnDefinition MinWidth="514" Width="1*"></ColumnDefinition>
+                    <ColumnDefinition Width="1*"></ColumnDefinition>
                 </Grid.ColumnDefinitions>
-                <kmr:SubstanceLabels>
-                </kmr:SubstanceLabels>
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <kmr:CalculationLabels>
+                </kmr:CalculationLabels>
+                
             </Grid>
         </ScrollViewer>
     </DockPanel>

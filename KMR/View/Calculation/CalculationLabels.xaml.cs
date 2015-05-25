@@ -18,9 +18,9 @@ namespace KMR.View
     /// <summary>
     /// Interaktionslogik für SubstanceLabels.xaml
     /// </summary>
-    public partial class SubstanceLabels : UserControl
+    public partial class CalculationLabels : UserControl
     {
-        public SubstanceLabels()
+        public CalculationLabels()
         {
             InitializeComponent();
         }

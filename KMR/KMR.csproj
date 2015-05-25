@@ -70,7 +70,7 @@
     <Compile Include="View\PageSwitcher.xaml.cs">
       <DependentUpon>PageSwitcher.xaml</DependentUpon>
     </Compile>
-    <Page Include="View\Calculation\SubstanceLabels.xaml">
+    <Page Include="View\Calculation\CalculationLabels.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -78,8 +78,8 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="View\Calculation\SubstanceLabels.xaml.cs">
-      <DependentUpon>SubstanceLabels.xaml</DependentUpon>
+    <Compile Include="View\Calculation\CalculationLabels.xaml.cs">
+      <DependentUpon>CalculationLabels.xaml</DependentUpon>
     </Compile>
     <Page Include="View\Menu.xaml">
       <SubType>Designer</SubType>
