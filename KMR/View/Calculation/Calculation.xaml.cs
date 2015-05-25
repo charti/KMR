@@ -13,26 +13,19 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace KMR
+namespace KMR.View
 {
     /// <summary>
     /// Interaktionslogik für Page2.xaml
     /// </summary>
-    public partial class Calculation : UserControl, ISwitchable
+    public partial class Calculation : UserControl
     {
+        public Control.CalcController Controller { get; private set; }
         public Calculation()
         {
+            Controller = new Control.CalcController();
+            DataContext = Controller;
             InitializeComponent();
-        }
-
-        public void UtilizeState(object state)
-        {
-            throw new NotImplementedException();
-        }
-
-        private void next_Click(object sender, RoutedEventArgs e)
-        {
-            Switcher.Switch(typeof(Menu));
         }
     }
 }

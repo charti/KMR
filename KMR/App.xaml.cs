@@ -13,5 +13,11 @@ namespace KMR
     /// </summary>
     public partial class App : Application
     {
+        private void Application_Startup(object sender, StartupEventArgs e)
+        {
+            var app = (App)sender;
+            app.MainWindow = new View.PageSwitcher();
+            app.MainWindow.Show();
+        }
     }
 }

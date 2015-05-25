@@ -1,8 +1,8 @@
 ﻿<UserControl xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
-             xmlns:local="clr-namespace:KMR.Properties"             
-             xmlns:local1="clr-namespace:KMR"             
-             x:Class="KMR.SubstanceLabels"
+             xmlns:local="clr-namespace:KMR.Properties"
+             xmlns:local1="clr-namespace:KMR.View"             
+             x:Class="KMR.View.SubstanceLabels"
              DataContext="{Binding DataContext, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local1:Calculation}}}" 
              >
     <UserControl.Resources>

@@ -1,8 +1,9 @@
-﻿<UserControl x:Class="KMR.Calculation"
+﻿<UserControl x:Class="KMR.View.Calculation"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
              xmlns:local="clr-namespace:KMR.Properties"
-             xmlns:kmr="clr-namespace:KMR"
+             xmlns:kmr="clr-namespace:KMR.View"
+             xmlns:common="clr-namespace:KMR.Common"
              Width="{Binding Width, ElementName=PageSwitcher}"
              Height="{Binding Height, ElementName=PageSwitcher}" 
              >
@@ -11,7 +12,9 @@
     </UserControl.Resources>
     
     <DockPanel LastChildFill="True">
-        <Menu DockPanel.Dock="Top" Height="50" VerticalAlignment="Top"/>
+        <Menu DockPanel.Dock="Top" Height="50" VerticalAlignment="Top">
+            <Button Command="common:Commands.OpenMenuView">Zurück</Button>
+        </Menu>
         <ScrollViewer VerticalScrollBarVisibility="Auto">
             <Grid>
                 <Grid.ColumnDefinitions>

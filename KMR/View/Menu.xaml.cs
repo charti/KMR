@@ -13,26 +13,20 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace KMR
+namespace KMR.View
 {
     /// <summary>
     /// Interaction logic for Window1.xaml
     /// </summary>
-    public partial class Menu : UserControl, ISwitchable
+    public partial class Menu : UserControl
     {
+        public Control.MenuController Controller { get; private set; }
         public Menu()
         {
-            InitializeComponent();            
+            Controller = new Control.MenuController();
+            DataContext = Controller;
+            InitializeComponent();
         }
 
-        public void UtilizeState(object state)
-        {
-            throw new NotImplementedException();
-        }
-
-        private void click_ButtonCalculation(object sender, RoutedEventArgs e)
-        {
-            Switcher.Switch(typeof(Calculation));
-        }
     }
 }
