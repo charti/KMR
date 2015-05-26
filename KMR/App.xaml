@@ -30,5 +30,14 @@
                BasedOn="{StaticResource ResourceKey=CalcCaptions}">
             <Setter Property="FontWeight" Value="Bold"/>
         </Style>
+        <Style x:Key="CalcCaptionsCentered" TargetType="Label"
+               BasedOn="{StaticResource ResourceKey=CalcCaptions}">
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+        </Style>
+        <Style x:Key="CalcCaptionsCenteredBold" TargetType="Label"
+               BasedOn="{StaticResource ResourceKey=CalcCaptionsCentered}">
+            <Setter Property="FontWeight" Value="Bold"/>
+        </Style>
+
     </Application.Resources>
 </Application>

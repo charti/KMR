@@ -1,4 +1,5 @@
-﻿using System;
+﻿using KMR.Model;
+using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
@@ -18,6 +19,7 @@ namespace KMR
             var app = (App)sender;
             app.MainWindow = new View.PageSwitcher();
             app.MainWindow.Show();
+            var calculator = new Calculator();
         }
     }
 }

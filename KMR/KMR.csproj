@@ -67,6 +67,8 @@
     <Compile Include="Control\Mediator.cs" />
     <Compile Include="Control\MenuController.cs" />
     <Compile Include="Control\NaviController.cs" />
+    <Compile Include="Model\CalculationService.cs" />
+    <Compile Include="Model\Calculator.cs" />
     <Compile Include="View\PageSwitcher.xaml.cs">
       <DependentUpon>PageSwitcher.xaml</DependentUpon>
     </Compile>
@@ -118,6 +120,7 @@
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <None Include="ClassDiagram1.cd" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -129,9 +132,7 @@
       <SubType>Designer</SubType>
     </None>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Model\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Resource Include="Resources\ButtonCalculation.png" />
   </ItemGroup>

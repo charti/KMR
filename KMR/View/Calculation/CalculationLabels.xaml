@@ -1,8 +1,10 @@
 ﻿<UserControl xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
              xmlns:local="clr-namespace:KMR.Properties"
-             xmlns:local1="clr-namespace:KMR.View"             
-             x:Class="KMR.View.CalculationLabels"
+             xmlns:view="clr-namespace:KMR.View"             
+             x:Class="KMR.View.CalculationLabels" 
+             DataContext="{Binding Controller,
+                RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type view:Calculation}}}"
              >
     <UserControl.Resources>
         <Style TargetType="{x:Type Label}" BasedOn="{StaticResource CalcCaptions}"/>
@@ -186,194 +188,205 @@
 					Style="{StaticResource CalcCaptionsBold}"
                     Margin="0,0,8,0"
 					Content="Laufzeit Investitionsaufwand Eigenkapital - Rücklage"/>
+                
 
                 <Label Grid.Column="2" Grid.Row="1"
-                       Style="{StaticResource CalcCaptionsBold}"
+                       Style="{StaticResource CalcCaptionsCenteredBold}"
                        Margin="8,0,8,0"
-                       Content="{Binding Path=Substance[substancePerc]}"/>
+                       Content="{Binding ExistingSubstancePerc }"/>
                 <Label Grid.Column="2" Grid.Row="2"
+                       Style="{StaticResource CalcCaptionsCentered}"
                        BorderThickness="1,0"
                        Margin="8,0,8,0"
-					Content=""/>
+					   Content="{Binding ExistingSubstanceBorrowPerc }"/>
                 <Label Grid.Column="2" Grid.Row="3"
+                       Style="{StaticResource CalcCaptionsCentered}"
                        Margin="8,0,8,0"
-                       Content=""/>
+                       Content="{Binding ExistingSubstanceOwnPerc }"/>
                 <Label Grid.Column="2" Grid.Row="5"
-					Style="{StaticResource CalcCaptionsBold}"
+					Style="{StaticResource CalcCaptionsCenteredBold}"
                        Margin="8,0,8,0"
-					Content=""/>
+					Content="{Binding SubstanceAnnuityPerc}"/>
                 <Label Grid.Column="2" Grid.Row="6"
+                       Style="{StaticResource CalcCaptionsCentered}"
 					   BorderThickness="1,0"
                        Margin="8,0,8,0"
-                       Content=""/>
+                       Content="{Binding SubstanceAnnuityInterestPerc}"/>
                 <Label Grid.Column="2" Grid.Row="7"
+                       Style="{StaticResource CalcCaptionsCentered}"
                        Margin="8,0,8,0"
-					Content=""/>
+					Content="{Binding SubstanceAnnuityRepayPerc}"/>
                 <Label Grid.Column="2" Grid.Row="9"
-					   Style="{StaticResource CalcCaptionsBold}"
+					   Style="{StaticResource CalcCaptionsCenteredBold}"
                        Margin="8,0,8,0"
-					   Content=""/>
+					   Content="{Binding SubstanceOwnPerc}"/>
                 <Label Grid.Column="2" Grid.Row="10"
+                       Style="{StaticResource CalcCaptionsCentered}"
 					   BorderThickness="1,0"
                        Margin="8,0,8,0"
-					   Content=""/>
+					   Content="{Binding SubstanceOwnInterestPerc}"/>
                 <Label Grid.Column="2" Grid.Row="11"
+                       Style="{StaticResource CalcCaptionsCentered}"
                        Margin="8,0,8,0"
-					   Content=""/>
+					   Content="{Binding SubstanceOwnReservePerc}"/>
                 <Label Grid.Column="2" Grid.Row="15"
-					   Style="{StaticResource CalcCaptionsBold}"
+					   Style="{StaticResource CalcCaptionsCenteredBold}"
                        Margin="8,0,8,0"
-					   Content=""/>
+					   Content="{Binding InvestmentPerc}"/>
                 <Label Grid.Column="2" Grid.Row="16"
+                       Style="{StaticResource CalcCaptionsCentered}"
 					   BorderThickness="1,0"
                        Margin="8,0,8,0"
-					   Content=""/>
+					   Content="{Binding InvestmentBorrowPerc}"/>
                 <Label Grid.Column="2" Grid.Row="17"
+                       Style="{StaticResource CalcCaptionsCentered}"
                        Margin="8,0,8,0"
-					   Content=""/>
+					   Content="{Binding InvestmentOwnPerc}"/>
                 <Label Grid.Column="2" Grid.Row="19"
-					   Style="{StaticResource CalcCaptionsBold}"
+					   Style="{StaticResource CalcCaptionsCenteredBold}"
                        Margin="8,0,8,0"
-					   Content=""/>
+					   Content="{Binding InvestAnnuityPerc}"/>
                 <Label Grid.Column="2" Grid.Row="20"
+                       Style="{StaticResource CalcCaptionsCentered}"
 					   BorderThickness="1,0"
                        Margin="8,0,8,0"
-					   Content=""/>
+					   Content="{Binding InvestAnnuityInterestPerc}"/>
                 <Label Grid.Column="2" Grid.Row="21"
+                       Style="{StaticResource CalcCaptionsCentered}"
                        Margin="8,0,8,0"
-					   Content=""/>
+					   Content="{Binding InvestAnnuityRepayPerc}"/>
                 <Label Grid.Column="2" Grid.Row="23"
-					   Style="{StaticResource CalcCaptionsBold}"
+					   Style="{StaticResource CalcCaptionsCenteredBold}"
                        Margin="8,0,8,0"
-					   Content=""/>
+					   Content="{Binding InvestOwnPerc}"/>
                 <Label Grid.Column="2" Grid.Row="24"
+                       Style="{StaticResource CalcCaptionsCentered}"
 					   BorderThickness="1,0"
                        Margin="8,0,8,0"
-					   Content=""/>
+					   Content="{Binding InvestOwnInterestPerc}"/>
                 <Label Grid.Column="2" Grid.Row="25"
+                       Style="{StaticResource CalcCaptionsCentered}"
                        Margin="8,0,8,0"
-					   Content=""/>
+					   Content="{Binding InvestOwnReservePerc}"/>
                 <Label Grid.Column="2" Grid.Row="29"
-					   Style="{StaticResource CalcCaptionsBold}"
+					   Style="{StaticResource CalcCaptionsCenteredBold}"
                        Margin="8,0,8,0"
-					   Content=""/>
+					   Content="{Binding RentLossPerc}"/>
                 <Label Grid.Column="2" Grid.Row="31"
-					   Style="{StaticResource CalcCaptionsBold}"
+					   Style="{StaticResource CalcCaptionsCenteredBold}"
                        Margin="8,0,8,0"
-					   Content=""/>
+					   Content="{Binding MaintenancePerc}"/>
                 <Label Grid.Column="2" Grid.Row="33"
-					   Style="{StaticResource CalcCaptionsBold}"
+					   Style="{StaticResource CalcCaptionsCenteredBold}"
                        Margin="8,0,8,0"
-					   Content=""/>
+					   Content="{Binding AdministrationPerFlat}"/>
                 <Label Grid.Column="2" Grid.Row="35"
-					   Style="{StaticResource CalcCaptionsBold}"
+					   Style="{StaticResource CalcCaptionsCenteredBold}"
                        Margin="8,0,8,0"
-					   Content=""/>
+					   Content="{Binding AvarageFlatSize}"/>
                 <Label Grid.Column="2" Grid.Row="39"
-					   Style="{StaticResource CalcCaptionsBold}"
+					   Style="{StaticResource CalcCaptionsCenteredBold}"
                        Margin="8,0,8,0"
-					   Content=""/>
+					   Content="{Binding DepreciationPerc}"/>
                 <Label Grid.Column="2" Grid.Row="40"
-					   Style="{StaticResource CalcCaptionsBold}"
+					   Style="{StaticResource CalcCaptionsCenteredBold}"
                        Margin="8,0,8,0"
                        BorderThickness="1,0,1,1"
-					   Content=""/>
-
+					   Content="{Binding HgbPerc}"/>
+                
                 <Label Grid.Column="3" Grid.Row="1"
-					Style="{StaticResource CalcCaptionsBold}"
-					Content="{Binding Path=Substance[substancePerc]}"
+					Style="{StaticResource CalcCaptionsCenteredBold}"
+					Content="{Binding ExistingSubstanceVal}"
                     />
                 <Label Grid.Column="3" Grid.Row="2"
-					BorderThickness="1,0"
-					Padding="25,0"
-					Content=""/>
+					Style="{StaticResource CalcCaptionsCentered}"
+					BorderThickness="1,0"					
+					Content="{Binding ExistingSubstanceBorrowVal}"/>
                 <Label Grid.Column="3" Grid.Row="3"
-					Padding="25,0"
-					Content=""/>
+					Style="{StaticResource CalcCaptionsCentered}"	
+					Content="{Binding ExistingSubstanceOwnVal}"/>
                 <Label Grid.Column="3" Grid.Row="5"
-					Style="{StaticResource CalcCaptionsBold}"
-					Content=""/>
+					Style="{StaticResource CalcCaptionsCenteredBold}"
+					Content="{Binding SubstanceAnnuityVal}"/>
                 <Label Grid.Column="3" Grid.Row="6"
-					BorderThickness="1,0"
-					Padding="25,0"
-					Content=""/>
+					Style="{StaticResource CalcCaptionsCentered}"
+					BorderThickness="1,0"					
+					Content="{Binding SubstanceAnnuityInterestVal}"/>
                 <Label Grid.Column="3" Grid.Row="7"
-					Padding="25,0"
-					Content=""/>
+					Style="{StaticResource CalcCaptionsCentered}"
+					Content="{Binding SubstanceAnnuityRepayVal}"/>
                 <Label Grid.Column="3" Grid.Row="9"
-					Style="{StaticResource CalcCaptionsBold}"
-					Content=""/>
+					Style="{StaticResource CalcCaptionsCenteredBold}"
+					Content="{Binding SubstanceOwnVal}"/>
                 <Label Grid.Column="3" Grid.Row="10"
-					BorderThickness="1,0"
-					Padding="25,0"
-					Content=""/>
+					Style="{StaticResource CalcCaptionsCentered}"
+					BorderThickness="1,0"					
+					Content="{Binding SubstanceOwnInterestVal}"/>
                 <Label Grid.Column="3" Grid.Row="11"
-					Padding="25,0"
-					Content=""/>
+					Style="{StaticResource CalcCaptionsCentered}"
+					Content="{Binding SubstanceOwnReserveVal}"/>
                 <Label Grid.Column="3" Grid.Row="15"
-					Style="{StaticResource CalcCaptionsBold}"
-					Content=""/>
+					Style="{StaticResource CalcCaptionsCenteredBold}"
+					Content="{Binding InvestmentVal}"/>
                 <Label Grid.Column="3" Grid.Row="16"
-					BorderThickness="1,0"
-					Padding="25,0"
-					Content=""/>
+					Style="{StaticResource CalcCaptionsCentered}"
+					BorderThickness="1,0"					
+					Content="{Binding InvestmentBorrowVal}"/>
                 <Label Grid.Column="3" Grid.Row="17"
-					Padding="25,0"
-					Content=""/>
+					Style="{StaticResource CalcCaptionsCentered}"
+					Content="{Binding InvestmentOwnVal}"/>
                 <Label Grid.Column="3" Grid.Row="19"
-					Style="{StaticResource CalcCaptionsBold}"
-					Content=""/>
+					Style="{StaticResource CalcCaptionsCenteredBold}"
+					Content="{Binding InvestAnnuityVal}"/>
                 <Label Grid.Column="3" Grid.Row="20"
-					BorderThickness="1,0"
-					Padding="25,0"
-					Content=""/>
+					Style="{StaticResource CalcCaptionsCentered}"
+					BorderThickness="1,0"					
+					Content="{Binding InvestAnnuityInterestVal}"/>
                 <Label Grid.Column="3" Grid.Row="21"
-					Padding="25,0"
-					Content=""/>
+					Style="{StaticResource CalcCaptionsCentered}"
+					Content="{Binding InvestAnnuityRepayVal}"/>
                 <Label Grid.Column="3" Grid.Row="23"
-					Style="{StaticResource CalcCaptionsBold}"
-					Content=""/>
+					Style="{StaticResource CalcCaptionsCenteredBold}"
+					Content="{Binding InvestOwnVal}"/>
                 <Label Grid.Column="3" Grid.Row="24"
-					BorderThickness="1,0"
-					Padding="25,0"
-					Content=""/>
+					Style="{StaticResource CalcCaptionsCentered}"
+					BorderThickness="1,0"					
+					Content="{Binding InvestOwnInterestVal}"/>
                 <Label Grid.Column="3" Grid.Row="25"
-					Padding="25,0"
-					Content=""/>
+					Style="{StaticResource CalcCaptionsCentered}"
+					Content="{Binding InvestOwnReserveVal}"/>
                 <Label Grid.Column="3" Grid.Row="29"
-					Padding="25,0"
-					Content=""/>
+					Style="{StaticResource CalcCaptionsCenteredBold}"
+					Content="{Binding RentLossVal}"/>
                 <Label Grid.Column="3" Grid.Row="31"
-					Padding="25,0"
-					Content=""/>
+					Style="{StaticResource CalcCaptionsCenteredBold}"
+					Content="{Binding MaintenanceVal}"/>
                 <Label Grid.Column="3" Grid.Row="33"
-					Padding="25,0"
-					Content=""/>
-                <Label Grid.Column="3" Grid.Row="35"
-					Padding="25,0"
-					Content=""/>
+					Style="{StaticResource CalcCaptionsCenteredBold}"
+					Content="{Binding AdministrationPerMeter}"/>
                 <Label Grid.Column="3" Grid.Row="39"
-					Padding="25,0"
-					Content=""/>
+					Style="{StaticResource CalcCaptionsCenteredBold}"
+					Content="{Binding DepreciationVal}"/>
                 <Label Grid.Column="3" Grid.Row="40"
-					Padding="25,0"
+					Style="{StaticResource CalcCaptionsCenteredBold}"
                     BorderThickness="1,0,1,1"
-					Content=""/>
+					Content="{Binding HgbVal}"/>
                 <Label Grid.Column="3" Grid.Row="44"
-					Padding="25,0"
-					Content=""/>
+					Style="{StaticResource CalcCaptionsCenteredBold}"
+					Content="{Binding RentalCosts}"/>
                 <Label Grid.Column="3" Grid.Row="46"
-					Padding="25,0"
-					Content=""/>
+					Style="{StaticResource CalcCaptionsCenteredBold}"
+					Content="{Binding SubstanceBorrowRepayLength}"/>
                 <Label Grid.Column="3" Grid.Row="48"
-					Padding="25,0"
-					Content=""/>
+					Style="{StaticResource CalcCaptionsCenteredBold}"
+					Content="{Binding SubstanceOwnReserveLength}"/>
                 <Label Grid.Column="3" Grid.Row="50"
-					Padding="25,0"
-					Content=""/>
+					Style="{StaticResource CalcCaptionsCenteredBold}"
+					Content="{Binding InvestBorrowRepayLength}"/>
                 <Label Grid.Column="3" Grid.Row="52"
-					Padding="25,0"
-					Content=""/>
+					Style="{StaticResource CalcCaptionsCenteredBold}"
+					Content="{Binding InvestOwnReserveLength}"/>                
+                
                 <Border BorderBrush="White" BorderThickness="1"
                     Grid.Row="0" Grid.Column="0"
                     Grid.RowSpan="13" Grid.ColumnSpan="5">

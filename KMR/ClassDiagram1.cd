@@ -1,0 +1,89 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="KMR.Common.Commands" Collapsed="true">
+    <Position X="16.25" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAIAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Common\Commands.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="KMR.Common.Messages" Collapsed="true">
+    <Position X="18" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Common\Messages.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="KMR.Control.CalcController" Collapsed="true">
+    <Position X="9.25" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAIAA=</HashCode>
+      <FileName>Control\CalcController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="KMR.Control.BaseController" Collapsed="true">
+    <Position X="11.5" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAIAQAAAAAiAAAAAAAAAAAAAAAIAA=</HashCode>
+      <FileName>Control\Controller.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="KMR.Control.Mediator" Collapsed="true">
+    <Position X="16.25" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAQAAAAAAAAAAAAADAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Control\Mediator.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="KMR.Control.MenuController" Collapsed="true">
+    <Position X="11.5" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAA=</HashCode>
+      <FileName>Control\MenuController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="KMR.Control.NaviController" Collapsed="true">
+    <Position X="13.75" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAEAAAAAEAIABAAAAAAAAAAIAA=</HashCode>
+      <FileName>Control\NaviController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="KMR.View.Calculation" Collapsed="true">
+    <Position X="10.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>View\Calculation\Calculation.xaml.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="KMR.View.CalculationLabels" Collapsed="true">
+    <Position X="12.25" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>View\Calculation\CalculationLabels.xaml.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="KMR.View.Menu" Collapsed="true">
+    <Position X="10.5" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>View\Menu.xaml.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="KMR.View.PageSwitcher" Collapsed="true">
+    <Position X="12.25" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>View\PageSwitcher.xaml.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Interface Name="KMR.Common.IColleague" Collapsed="true">
+    <Position X="16.25" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAIAA=</HashCode>
+      <FileName>Common\IColleague.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
