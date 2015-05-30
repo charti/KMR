@@ -77,40 +77,40 @@ namespace KMR.Control
 
         #region Properties
 
-        Dictionary<string, string> _values = new Dictionary<string, string>() 
+        Dictionary<string, string> _values = new Dictionary<string, string>()
         {
-            {"ExistingSubstancePerc",       "0"},           {"ExistingSubstanceVal",        "0"},
-            {"ExistingSubstanceBorrowPerc", "0"},           {"ExistingSubstanceBorrowVal",  "0"},
-            {"ExistingSubstanceOwnPerc",    "0"},           {"ExistingSubstanceOwnVal",     "0"},
-            {"SubstanceAnnuityPerc",        "0"},           {"SubstanceAnnuityVal",         "0"},
-            {"SubstanceAnnuityInterestPerc","0"},           {"SubstanceAnnuityInterestVal", "0"},
-            {"SubstanceAnnuityRepayPerc",   "0"},           {"SubstanceAnnuityRepayVal",    "0"},
-            {"SubstanceOwnPerc",            "0"},           {"SubstanceOwnVal",             "0"},
-            {"SubstanceOwnInterestPerc",    "0"},           {"SubstanceOwnInterestVal",     "0"},
-            {"SubstanceOwnReservePerc",     "0"},           {"SubstanceOwnReserveVal",      "0"},
+            {"ExistingSubstancePerc",       String.Empty},   {"ExistingSubstanceVal",        String.Empty},
+            {"ExistingSubstanceBorrowPerc", String.Empty},   {"ExistingSubstanceBorrowVal",  String.Empty},
+            {"ExistingSubstanceOwnPerc",    String.Empty},   {"ExistingSubstanceOwnVal",     String.Empty},
+            {"SubstanceAnnuityPerc",        String.Empty},   {"SubstanceAnnuityVal",         String.Empty},
+            {"SubstanceAnnuityInterestPerc",String.Empty},   {"SubstanceAnnuityInterestVal", String.Empty},
+            {"SubstanceAnnuityRepayPerc",   String.Empty},   {"SubstanceAnnuityRepayVal",    String.Empty},
+            {"SubstanceOwnPerc",            String.Empty},   {"SubstanceOwnVal",             String.Empty},
+            {"SubstanceOwnInterestPerc",    String.Empty},   {"SubstanceOwnInterestVal",     String.Empty},
+            {"SubstanceOwnReservePerc",     String.Empty},   {"SubstanceOwnReserveVal",      String.Empty},
 
-            {"InvestmentPerc",              "0"},           {"InvestmentVal",               "0"},
-            {"InvestmentBorrowPerc",        "0"},           {"InvestmentBorrowVal",         "0"},
-            {"InvestmentOwnPerc",           "0"},           {"InvestmentOwnVal",            "0"},
-            {"InvestAnnuityPerc",           "0"},           {"InvestAnnuityVal",            "0"},
-            {"InvestAnnuityInterestPerc",   "0"},           {"InvestAnnuityInterestVal",    "0"},
-            {"InvestAnnuityRepayPerc",      "0"},           {"InvestAnnuityRepayVal",       "0"},
-            {"InvestOwnPerc",               "0"},           {"InvestOwnVal",                "0"},
-            {"InvestOwnInterestPerc",       "0"},           {"InvestOwnInterestVal",        "0"},
-            {"InvestOwnReservePerc",        "0"},           {"InvestOwnReserveVal",         "0"},
+            {"InvestmentPerc",              String.Empty},   {"InvestmentVal",               String.Empty},
+            {"InvestmentBorrowPerc",        String.Empty},   {"InvestmentBorrowVal",         String.Empty},
+            {"InvestmentOwnPerc",           String.Empty},   {"InvestmentOwnVal",            String.Empty},
+            {"InvestAnnuityPerc",           String.Empty},   {"InvestAnnuityVal",            String.Empty},
+            {"InvestAnnuityInterestPerc",   String.Empty},   {"InvestAnnuityInterestVal",    String.Empty},
+            {"InvestAnnuityRepayPerc",      String.Empty},   {"InvestAnnuityRepayVal",       String.Empty},
+            {"InvestOwnPerc",               String.Empty},   {"InvestOwnVal",                String.Empty},
+            {"InvestOwnInterestPerc",       String.Empty},   {"InvestOwnInterestVal",        String.Empty},
+            {"InvestOwnReservePerc",        String.Empty},   {"InvestOwnReserveVal",         String.Empty},
 
-            {"RentLossPerc",                "0"},           {"RentLossVal",                 "0"},
-            {"MaintenancePerc",             "0"},           {"MaintenanceVal",              "0"},
-            {"AdministrationPerFlat",       "0"},           {"AdministrationPerMeter",      "0"},
-            {"AvarageFlatSize",             "0"},           
-            {"DepreciationPerc",            "0"},           {"DepreciationVal",             "0"},
-            {"HgbPerc",                     "0"},           {"HgbVal",                      "0"},
+            {"RentLossPerc",                String.Empty},   {"RentLossVal",                 String.Empty},
+            {"MaintenancePerc",             String.Empty},   {"MaintenanceVal",              String.Empty},
+            {"AdministrationPerFlat",       String.Empty},   {"AdministrationPerMeter",      String.Empty},
+            {"AvarageFlatSize",             String.Empty},   
+            {"DepreciationPerc",            String.Empty},   {"DepreciationVal",             String.Empty},
+            {"HgbPerc",                     String.Empty},   {"HgbVal",                      String.Empty},
 
-            {"RentalCosts",                 "0"},
-            {"SubstanceBorrowRepayLength",  "0"},
-            {"SubstanceOwnReserveLength",   "0"},
-            {"InvestBorrowRepayLength",     "0"},
-            {"InvestOwnReserveLength",      "0"}
+            {"RentalCosts",                 String.Empty},
+            {"SubstanceBorrowRepayLength",  String.Empty},
+            {"SubstanceOwnReserveLength",   String.Empty},
+            {"InvestBorrowRepayLength",     String.Empty},
+            {"InvestOwnReserveLength",      String.Empty}
 
         };
 

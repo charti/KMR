@@ -2,31 +2,30 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
              xmlns:local="clr-namespace:KMR"
              xmlns:common="clr-namespace:KMR.Common"
+             xmlns:local1="clr-namespace:KMR.View"
              x:Class="KMR.View.Menu"
-             Width="{Binding Width, ElementName=PageSwitcher}"
-             Height="{Binding Height, ElementName=PageSwitcher}"
              >
     <DockPanel LastChildFill="True" Margin="0,0,0,100">
         <Menu DockPanel.Dock="Top" Height="50" VerticalAlignment="Top"/>
         <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
             <Label Content="Kostenmietenrechner"
-                   FontSize="37"
-                   FontWeight="Bold"
-                   HorizontalAlignment="Center"
+				FontSize="37"
+				FontWeight="Bold"
+				HorizontalAlignment="Center"
                    />
             <Label Content="wirtschaftliche Kaltmiete - Wohnen kostet"
-				   FontSize="29"
-				   FontFamily="Calibri Light"
-				   HorizontalAlignment="Center"
+				FontSize="29"
+				FontFamily="Calibri Light"
+				HorizontalAlignment="Center"
                    />
             <StackPanel Orientation="Horizontal" 
-                        HorizontalAlignment="Center"
-                        Margin="0,67,0,0">
+				HorizontalAlignment="Center"
+				Margin="0,67,0,0">
                 <Button Width="400" Height="200" Margin="3,0"/>
                 <Button x:Name="ButtonCalculation" 
-                        Width="400" Height="200" 
-                        Margin="3,0" Background="#FFDDDDDD"
-                        Command="common:Commands.OpenCalculationView">
+					Width="400" Height="200" 
+					Margin="3,0" Background="#FFDDDDDD"
+					Command="common:Commands.OpenCalculationView">
                     <Image Source="/KMR;component/Resources/ButtonCalculation.png"/>
                 </Button>
             </StackPanel>

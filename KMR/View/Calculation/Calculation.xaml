@@ -1,34 +1,29 @@
-﻿<UserControl x:Class="KMR.View.Calculation"
+﻿<UserControl
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
              xmlns:local="clr-namespace:KMR.Properties"
              xmlns:kmr="clr-namespace:KMR.View"
              xmlns:common="clr-namespace:KMR.Common"
-             Width="{Binding Width, ElementName=PageSwitcher}"
-             Height="{Binding Height, ElementName=PageSwitcher}" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" mc:Ignorable="d" x:Class="KMR.View.Calculation"
              >
-    <UserControl.Resources>
-        <!--<Style TargetType="Label" BasedOn="{StaticResource CalcCaptions}"/>-->
-    </UserControl.Resources>
-    
+
     <DockPanel LastChildFill="True">
         <Menu DockPanel.Dock="Top" Height="50" VerticalAlignment="Top">
-            <Button Command="common:Commands.OpenMenuView">Zurück</Button>
+            <Button Command="common:Commands.OpenMenuView" Content="Zurück"/>
         </Menu>
         <ScrollViewer VerticalScrollBarVisibility="Auto">
             <Grid>
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition MinWidth="514" Width="1*"></ColumnDefinition>
-                    <ColumnDefinition Width="1*"></ColumnDefinition>
+                    <ColumnDefinition MinWidth="514" Width="1*"/>
+                    <ColumnDefinition Width="1*"/>
                 </Grid.ColumnDefinitions>
                 <Grid.RowDefinitions>
                     <RowDefinition/>
                     <RowDefinition/>
                     <RowDefinition/>
                 </Grid.RowDefinitions>
-                <kmr:CalculationLabels>
-                </kmr:CalculationLabels>
-                
+                <kmr:CalculationLabels/>
+                <kmr:CalcInput Margin="8,0,0,0" Grid.Column="1"/>
             </Grid>
         </ScrollViewer>
     </DockPanel>

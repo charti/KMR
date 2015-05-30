@@ -15,6 +15,12 @@
                 </Setter.Value>
             </Setter>
         </Style>
+        <Style TargetType="Menu">
+            <Setter Property="Background" Value="#FFF0F0F0"/>
+        </Style>
+        <Style TargetType="Button">
+            <Setter Property="Background" Value="#FFF0F0F0"/>
+        </Style>
         <Style x:Key="CalcCaptions" TargetType="Label">
             <Setter Property="Height" Value="23"/>
             <Setter Property="Padding" Value="0"/>

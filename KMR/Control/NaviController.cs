@@ -22,7 +22,7 @@ namespace KMR.Control
             this.MainWindow = mainWindow;
             Menu = new View.Menu();
             Calculation = new Calculation();
-            Mediator.Register(this as IColleague, new[]
+            Mediator.Register(this, new[]
             {
                 Messages.NavigateTo
             });

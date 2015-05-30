@@ -27,7 +27,6 @@ namespace KMR.Model
         }
 
         #region Properties
-        5
 
         #endregion
     }

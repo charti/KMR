@@ -1,4 +1,5 @@
-﻿using System;
+﻿using KMR.Common;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -11,8 +12,8 @@ namespace KMR.Control
     public class Mediator
     {
         #region Data members
-        Dictionary<string, List<Common.IColleague>> internalList
-            = new Dictionary<string, List<Common.IColleague>>();
+        Dictionary<string, List<IColleague>> internalList
+            = new Dictionary<string, List<IColleague>>();
         #endregion
 
         /// <summary>
@@ -20,18 +21,18 @@ namespace KMR.Control
         /// </summary>
         /// <param name="colleague">The colleague to register</param>
         /// <param name="messages">The message to register to</param>
-        public void Register(Common.IColleague colleague, IEnumerable<string> messages)
+        public void Register(IColleague colleague, IEnumerable<string> messages)
         {
             foreach (string message in messages)
             {
                 if (!internalList.ContainsKey(message))
                 {
-                    internalList[message] = new List<Common.IColleague>(1);
+                    internalList[message] = new List<IColleague>(1);
                 }
                 else
                 {
                     if (internalList[message] == null)
-                        internalList[message] = new List<Common.IColleague>(1); 
+                        internalList[message] = new List<IColleague>(1); 
                 }
 
                 internalList[message].Add(colleague);
@@ -48,7 +49,7 @@ namespace KMR.Control
             if (internalList.ContainsKey(message))
             {
                 //forward the message to all listeners
-                foreach (Common.IColleague colleague in internalList[message])
+                foreach (IColleague colleague in internalList[message])
                     colleague.MessageNotification(message, args);
             }
         }

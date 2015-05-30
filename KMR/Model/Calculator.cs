@@ -9,8 +9,13 @@ using System.Threading.Tasks;
 
 namespace KMR.Model
 {
+    public interface IBaseCalcType
+    {
+        bool calc();
+    }
+
     class Calculator
-    {    
+    {
         public Calculator()
         {
             CalcService = new CalculationService();
@@ -22,5 +27,30 @@ namespace KMR.Model
 
         #endregion
     }
+
+    public class ExcistingSubstance
+    {
+        public bool calc()
+        {
+            try
+            {
+
+                return true;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(this.ToString() + " calc()", ex);
+            }
+        }
+
+        #region Properties
+
+        public double ExistingSubstancePerc { get; set; }
+        public double ExistingSubstanceVal { get; set; }
+
+        #endregion
+    }
+
+
     
 }
