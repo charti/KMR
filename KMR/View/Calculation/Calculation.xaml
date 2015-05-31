@@ -4,14 +4,17 @@
              xmlns:local="clr-namespace:KMR.Properties"
              xmlns:kmr="clr-namespace:KMR.View"
              xmlns:common="clr-namespace:KMR.Common"
-             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" mc:Ignorable="d" x:Class="KMR.View.Calculation"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             mc:Ignorable="d" 
+             x:Class="KMR.View.Calculation"
              >
 
     <DockPanel LastChildFill="True">
         <Menu DockPanel.Dock="Top" Height="50" VerticalAlignment="Top">
             <Button Command="common:Commands.OpenMenuView" Content="Zurück"/>
         </Menu>
-        <ScrollViewer VerticalScrollBarVisibility="Auto">
+        <ScrollViewer Padding="4" VerticalScrollBarVisibility="Auto">
             <Grid>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition MinWidth="514" Width="1*"/>

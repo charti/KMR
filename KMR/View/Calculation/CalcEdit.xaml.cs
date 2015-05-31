@@ -16,16 +16,17 @@ using System.Windows.Shapes;
 namespace KMR.View
 {
     /// <summary>
-    /// Interaktionslogik für CalcInput.xaml
+    /// Interaktionslogik für CalcEdit.xaml
     /// </summary>
-    public partial class CalcInput : UserControl
+    public partial class CalcEdit : UserControl
     {
-        public Control.InputController Controller { get; private set; }
-        public CalcInput()
+        public CalcEdit(int row, string[] comboItems)
         {
+            this.SetValue(Grid.RowProperty, row);
+            this.SetValue(Grid.ColumnProperty, 1);
+            this.SetValue(Grid.RowSpanProperty, 20);
             InitializeComponent();
-            Controller = new Control.InputController((Grid)this.Content);
-            DataContext = Controller;
+
         }
     }
 }

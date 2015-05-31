@@ -3,11 +3,98 @@
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:common="clr-namespace:KMR.Common"
       mc:Ignorable="d">
 
     <Grid>
         <Grid.ColumnDefinitions>
-            
+            <ColumnDefinition Width="1*" MinWidth="100"/>
+            <ColumnDefinition Width="200*" MinWidth="300"/>
         </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="8"/>
+
+            <RowDefinition Height="23"/>
+            <RowDefinition Height="22"/>
+            <RowDefinition Height="23"/>
+            <RowDefinition Height="8"/>
+            <RowDefinition Height="23"/>
+            <RowDefinition Height="22"/>
+            <RowDefinition Height="23"/>
+            <RowDefinition Height="8"/>
+            <RowDefinition Height="23"/>
+            <RowDefinition Height="22"/>
+            <RowDefinition Height="23"/>
+
+            <RowDefinition Height="8"/>
+            <RowDefinition Height="8"/>
+            <RowDefinition Height="8"/>
+
+            <RowDefinition Height="23"/>
+            <RowDefinition Height="22"/>
+            <RowDefinition Height="23"/>
+            <RowDefinition Height="8"/>
+            <RowDefinition Height="23"/>
+            <RowDefinition Height="22"/>
+            <RowDefinition Height="23"/>
+            <RowDefinition Height="8"/>
+            <RowDefinition Height="23"/>
+            <RowDefinition Height="22"/>
+            <RowDefinition Height="23"/>
+
+            <RowDefinition Height="8"/>
+            <RowDefinition Height="8"/>
+            <RowDefinition Height="8"/>
+
+            <RowDefinition Height="23"/>
+            <RowDefinition Height="8"/>
+            <RowDefinition Height="23"/>
+            <RowDefinition Height="8"/>
+            <RowDefinition Height="23"/>
+            <RowDefinition Height="8"/>
+            <RowDefinition Height="23"/>
+
+            <RowDefinition Height="8"/>
+            <RowDefinition Height="8"/>
+            <RowDefinition Height="8"/>
+
+            <RowDefinition Height="23"/>
+            <RowDefinition Height="23"/>
+
+            <RowDefinition Height="8"/>
+            <RowDefinition Height="8"/>
+            <RowDefinition Height="8"/>
+
+            <RowDefinition Height="23"/>
+            <RowDefinition Height="16"/>
+            <RowDefinition Height="23"/>
+            <RowDefinition Height="8"/>
+            <RowDefinition Height="23"/>
+            <RowDefinition Height="8"/>
+            <RowDefinition Height="23"/>
+            <RowDefinition Height="8"/>
+            <RowDefinition Height="23"/>
+
+            <RowDefinition Height="8"/>
+            <RowDefinition Height="8"/>
+            <RowDefinition Height="8"/>
+        </Grid.RowDefinitions>
+        <Button Grid.Column="0" Grid.Row="1" Command="common:Commands.OpenEditView"/>
+        <Button Grid.Column="0" Grid.Row="2" Command="common:Commands.OpenEditView"/>
+        <Button Grid.Column="0" Grid.Row="6" Command="common:Commands.OpenEditView"/>
+        <Button Grid.Column="0" Grid.Row="7" Command="common:Commands.OpenEditView"/>
+        <Button Grid.Column="0" Grid.Row="10" Command="common:Commands.OpenEditView"/>
+        <Button Grid.Column="0" Grid.Row="11" Command="common:Commands.OpenEditView"/>
+        <Button Grid.Column="0" Grid.Row="15" Command="common:Commands.OpenEditView"/>
+        <Button Grid.Column="0" Grid.Row="16" Command="common:Commands.OpenEditView"/>
+        <Button Grid.Column="0" Grid.Row="20" Command="common:Commands.OpenEditView"/>
+        <Button Grid.Column="0" Grid.Row="21" Command="common:Commands.OpenEditView"/>
+        <Button Grid.Column="0" Grid.Row="24" Command="common:Commands.OpenEditView"/>
+        <Button Grid.Column="0" Grid.Row="25" Command="common:Commands.OpenEditView"/>
+        <Button Grid.Column="0" Grid.Row="29" Command="common:Commands.OpenEditView"/>
+        <Button Grid.Column="0" Grid.Row="31" Command="common:Commands.OpenEditView"/>
+        <Button Grid.Column="0" Grid.Row="33" Command="common:Commands.OpenEditView"/>
+        <Button Grid.Column="0" Grid.Row="35" Command="common:Commands.OpenEditView"/>
+        <Button Grid.Column="0" Grid.Row="40" Command="common:Commands.OpenEditView"/>
     </Grid>
 </UserControl>

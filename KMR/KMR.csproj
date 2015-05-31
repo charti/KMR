@@ -70,12 +70,19 @@
     <Compile Include="Control\NaviController.cs" />
     <Compile Include="Model\CalculationService.cs" />
     <Compile Include="Model\Calculator.cs" />
+    <Compile Include="View\Calculation\CalcEdit.xaml.cs">
+      <DependentUpon>CalcEdit.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\Calculation\CalcInput.xaml.cs">
       <DependentUpon>CalcInput.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\PageSwitcher.xaml.cs">
       <DependentUpon>PageSwitcher.xaml</DependentUpon>
     </Compile>
+    <Page Include="View\Calculation\CalcEdit.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\Calculation\CalcInput.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

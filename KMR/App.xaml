@@ -14,7 +14,15 @@
                     </LinearGradientBrush>
                 </Setter.Value>
             </Setter>
-        </Style>
+        </Style>        
+        <Style TargetType="{x:Type Grid}">
+            <Style.Resources>
+                <Style TargetType="Button">
+                    <Setter Property="Content" Value="Ändern"/>
+                    <Setter Property="Margin" Value="1"/>
+                </Style>
+            </Style.Resources>            
+        </Style>               
         <Style TargetType="Menu">
             <Setter Property="Background" Value="#FFF0F0F0"/>
         </Style>
@@ -44,6 +52,38 @@
                BasedOn="{StaticResource ResourceKey=CalcCaptionsCentered}">
             <Setter Property="FontWeight" Value="Bold"/>
         </Style>
-
+        <Style x:Key="EditCaptions" TargetType="Label">
+            <Setter Property="Height" Value="23"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="Padding" Value="5,0"/>
+            <Setter Property="FontFamily" Value="Calibri" />
+            <Setter Property="FontSize" Value="13"/>
+        </Style>
+        <Style x:Key="EditCaptionsBold" TargetType="Label"
+               BasedOn="{StaticResource EditCaptions}">
+            <Setter Property="FontWeight" Value="Bold"/>
+        </Style>
+        <Style x:Key="EditTextbox" TargetType="TextBox">
+            <Setter Property="FontFamily" Value="Calibri" />
+            <Setter Property="FontSize" Value="13"/>
+            <Setter Property="Width" Value="150"/>
+            <Setter Property="Height" Value="23"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="HorizontalContentAlignment" Value="Right"/>
+            <Setter Property="Padding" Value="0,0,5,0"/>
+            <Setter Property="Margin" Value="10,0"/>
+        </Style>
+        <Style x:Key="EditCombo" TargetType="ComboBox">
+            <Setter Property="FontFamily" Value="Calibri" />
+            <Setter Property="FontSize" Value="13"/>
+            <Setter Property="Width" Value="150"/>
+            <Setter Property="Height" Value="23"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="HorizontalContentAlignment" Value="Left"/>
+            <Setter Property="Padding" Value="5,0,0,0"/>
+            <Setter Property="Margin" Value="10,0"/>
+            <Setter Property="SelectedIndex" Value="0"/>
+        </Style>
     </Application.Resources>
 </Application>

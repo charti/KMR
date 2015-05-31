@@ -9,7 +9,7 @@ namespace KMR.Common
     public static class Messages
     {
         /// <summary>
-        /// Message to notify that all products should be fetched
+        /// Message to navigate PageSwitcher to other view
         /// </summary>
         public const string NavigateTo = "navigateTo";
         /// <summary>
@@ -18,8 +18,11 @@ namespace KMR.Common
         public const string UpdateFrontend = "updateFrontend";
         /// Invokes sending the Front End Properties
         /// </summary>
-        public const string PropertyListAdd = "PropertyListAdd";
-
+        public const string PropertyListAdd = "propertyListAdd";
+        /// <summary>
+        /// Message from the input View who pipelines input
+        /// </summary>
+        public const string Input = "input";
         
     }
 }
