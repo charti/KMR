@@ -68,6 +68,7 @@
     <Compile Include="Control\MenuController.cs" />
     <Compile Include="Control\InputController.cs" />
     <Compile Include="Control\NaviController.cs" />
+    <Compile Include="Model\CalculationHelpers.cs" />
     <Compile Include="Model\CalculationService.cs" />
     <Compile Include="Model\Calculator.cs" />
     <Compile Include="View\Calculation\CalcEdit.xaml.cs">
