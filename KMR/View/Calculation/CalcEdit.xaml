@@ -21,8 +21,7 @@
                 <TextBox x:Name="txtInput" Style="{StaticResource EditTextbox}"/>
                 <ComboBox x:Name="comboUnit"
                           SelectedIndex="0"
-                          Style="{StaticResource EditCombo}"
-                          ItemsSource="{Binding comboItems}"/>
+                          Style="{StaticResource EditCombo}"/>
             </StackPanel>
         </StackPanel>
         <StackPanel Margin="0,10" Orientation="Horizontal" HorizontalAlignment="Center">

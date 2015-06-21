@@ -27,6 +27,7 @@ namespace KMR.View
             this.SetValue(Grid.RowSpanProperty, 20);
             InitializeComponent();
 
+            comboUnit.ItemsSource = comboItems;
         }
     }
 }

@@ -1,13 +1,6 @@
 ﻿using KMR.Common;
-using KMR.View;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
-using System.Windows.Controls;
 using System.Windows.Input;
 
 namespace KMR.Control
@@ -63,7 +56,7 @@ namespace KMR.Control
                 new Dictionary<string, string>());
 
             foreach (var prop in _values.Keys)
-                propDictionary[type].Add(prop, String.Empty);
+                propDictionary[type].Add(prop, "100,00");
         }
         private void updateView(object data)
         {

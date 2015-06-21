@@ -6,7 +6,13 @@
              DataContext="{Binding Controller, Mode=OneWay, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type view:Calculation}}}"
              >
     <UserControl.Resources>
-        <Style TargetType="{x:Type Label}" BasedOn="{StaticResource CalcCaptions}"/>
+        <Style TargetType="{x:Type Label}" BasedOn="{StaticResource CalcCaptions}">
+            <Style.Triggers>
+                <Trigger Property="Grid.Column" Value="2">
+                    <Setter Property="ContentStringFormat" Value="{}{0} %"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
     </UserControl.Resources>
 
     <DockPanel x:Name="dockPanel" LastChildFill="True">
