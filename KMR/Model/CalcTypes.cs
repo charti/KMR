@@ -40,6 +40,7 @@ namespace KMR.Model
                 "ExistingSubstanceBorrowPerc",  "ExistingSubstanceBorrowVal",
                 "ExistingSubstanceOwnPerc",     "ExistingSubstanceOwnVal"
                 });
+
         }
 
         public override ICalculation calc()
