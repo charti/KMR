@@ -36,9 +36,9 @@ end
 
 task :restore_assembly do |t|
 	restored = File.expand_path("#{ENV["RESTORE_ASSEMBLY"]}\\Properties\\AssemblyInfo.cs")
+	destination = File.expand_path("#{ENV["WORKSPACE"]}\\KMR\\Properties\\AssemblyInfo.cs")
 	next unless File.exist?(restored)
 	FileUtils.cp(restored, destination)
-	puts restored
 end
 
 Rake.application[:bump_version].invoke
