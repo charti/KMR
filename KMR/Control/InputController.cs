@@ -67,10 +67,6 @@ namespace KMR.Control
 
         public override void MessageNotification(string message, object args)
         {
-            switch (message)
-            {
-
-            }
         }
     }
 }

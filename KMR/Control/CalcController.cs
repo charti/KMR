@@ -61,6 +61,7 @@ namespace KMR.Control
         private void updateView(object data)
         {
             var type = this.GetType().ToString();
+            //TODO nur neue elemente überschreiben und propertychanged aufrufen
             _values = ((Dictionary<string, Dictionary<string, string>>)data)[type];
             foreach (var prop in _values.Keys)
                 OnPropertyChanged(prop);

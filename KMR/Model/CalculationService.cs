@@ -16,10 +16,6 @@ namespace KMR.Model
         }
         public override void MessageNotification(string message, object args)
         {
-            switch (message)
-            {
-
-            }
         }
 
         #region Properties
