@@ -14,7 +14,7 @@
         /// </summary>
         public const string PropertyListAdd = "propertyListAdd";
         /// <summary>
-        /// Message from the input View who pipelines input
+        /// Message from the input View which pipelines input
         /// </summary>
         public const string Input = "input";
         

@@ -67,6 +67,17 @@ namespace KMR.Control
 
         public override void MessageNotification(string message, object args)
         {
+            switch (message)
+            {
+                case Messages.Input:
+
+                    break;
+
+                default:
+                    throw new System.NotImplementedException(this.ToString() +
+                        " is registered for the message: " + message + " but doesnt" +
+                        " implement an action for receiving.");
+            }
         }
     }
 }
