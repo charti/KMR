@@ -3,6 +3,7 @@ using KMR.View;
 using System.Collections.Generic;
 using System.Windows.Controls;
 using System.Windows.Input;
+using System;
 
 namespace KMR.Control
 {
@@ -46,6 +47,13 @@ namespace KMR.Control
 
             CommandManager.RegisterClassCommandBinding(typeof(System.Windows.Controls.Control),
                 new CommandBinding(Commands.OpenEditView, Edit_Click));
+            CommandManager.RegisterClassCommandBinding(typeof(System.Windows.Controls.Control),
+                new CommandBinding(Commands.FocusInput, Focus_Input));
+        }
+
+        private void Focus_Input(object sender, ExecutedRoutedEventArgs e)
+        {
+            (sender as CalcEdit)?.txtInput.Focus();
         }
 
         private void Edit_Click(object sender, ExecutedRoutedEventArgs e)
@@ -62,6 +70,7 @@ namespace KMR.Control
 
             _edit = new CalcEdit((int)row, _comboItems[(int)row]);
             _calcViewGrid.Children.Add(_edit);
+            _edit.Focusable = true;
             _edit.Focus();
         }
 

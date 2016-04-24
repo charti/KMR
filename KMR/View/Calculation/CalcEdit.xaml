@@ -1,13 +1,13 @@
 ﻿<UserControl
-             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:local="clr-namespace:KMR.Properties"
-             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
-             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:System="clr-namespace:System;assembly=mscorlib" xmlns:local1="clr-namespace:KMR.View" x:Class="KMR.View.CalcEdit" 
-             mc:Ignorable="d"
-             HorizontalAlignment="Left" 
-             VerticalAlignment="Top">
+            xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+            xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+            xmlns:local="clr-namespace:KMR.Properties"
+            xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+            xmlns:System="clr-namespace:System;assembly=mscorlib" xmlns:local1="clr-namespace:KMR.View" x:Class="KMR.View.CalcEdit"
+            xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+            xmlns:common="clr-namespace:KMR.Common"
+            HorizontalAlignment="Left" 
+            VerticalAlignment="Top">
     <UserControl.Resources>
         <Style TargetType="{x:Type Label}" BasedOn="{StaticResource EditCaptionsBold}"/>
         <Style TargetType="{x:Type Button}">
@@ -18,16 +18,22 @@
         <StackPanel x:Name="Inputs">
             <Label Margin="6,5" Content="Bitte geben Sie einen Wert ein."/>
             <StackPanel Margin="0,10" Orientation="Horizontal" HorizontalAlignment="Center">
-                <TextBox x:Name="txtInput" Style="{StaticResource EditTextbox}"/>
+                <TextBox x:Name="txtInput" Style="{StaticResource EditTextbox}" TabIndex="1">
+                    <i:Interaction.Triggers>
+                        <i:EventTrigger EventName="Loaded">
+                            <i:InvokeCommandAction Command="common:Commands.FocusInput"/>
+                        </i:EventTrigger>
+                    </i:Interaction.Triggers>
+                </TextBox>
                 <ComboBox x:Name="comboUnit"
-                          SelectedIndex="0"
-                          Style="{StaticResource EditCombo}"/>
+                        SelectedIndex="0"
+                        Style="{StaticResource EditCombo}" TabIndex="2"/>
             </StackPanel>
         </StackPanel>
         <StackPanel Margin="0,10" Orientation="Horizontal" HorizontalAlignment="Center">
-            <Button Name="btnAbort" HorizontalAlignment="Left" Content="Abbrechen"/>
+            <Button Name="btnAbort" HorizontalAlignment="Left" Content="Abbrechen" TabIndex="3"/>
             <Label Width="120"/>
-            <Button Name="btnAccept" HorizontalAlignment="Right" Content="Übernehmen"/>
+            <Button Name="btnAccept" HorizontalAlignment="Right" Content="Übernehmen" TabIndex="4"/>
         </StackPanel>
     </StackPanel>
 </UserControl>
