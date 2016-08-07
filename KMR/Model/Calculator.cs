@@ -1,95 +1,124 @@
 ﻿using System;
 using System.Collections.Generic;
 
+using KMR.Common;
+
 namespace KMR.Model
 {
-    class Calculator
+    public class ValidationResult
     {
+        public bool Success { get; private set; }
+        public string ErrorCaption { get; private set; }
+        public string ErrorMsg { get; private set; }
+
+        public ValidationResult(bool success, string errorCaption = "",
+            string errorMsg = "")
+        {
+            Success = success;
+            ErrorCaption = errorCaption;
+            ErrorMsg = errorMsg;
+        }
+    }
+
+    public class Calculator
+    {
+        public double ExcistingSubstance { get; private set; }
+        public double ExistingSubstanceBorrowPerc { get; private set; }
+
+        private CalculationService CalcService { get; set; }
+
         public Calculator()
         {
-            CalcService = new CalculationService();
-            Values = new Dictionary<string, double>()
+            CalcService = new CalculationService(this);
+        }
+        
+        public ValidationResult Validate(CalcInputs type, CalcOption option, string value)
+        {
+            double val;
+            if (!Double.TryParse(value, out val))
+                return new ValidationResult(false, "Eingabefehler",
+                    "Bitte verwenden Sie für die Eingabe nur Zahlen.");
+
+            ValidationResult ret = null;
+
+            switch (type)
             {
-                {"ExistingSubstancePerc",       100},   {"ExistingSubstanceVal",        100},
-                {"ExistingSubstanceBorrowPerc", 50},    {"ExistingSubstanceBorrowVal",   50},
-                {"ExistingSubstanceOwnPerc",    -1},    {"ExistingSubstanceOwnVal",     -1},
-                {"SubstanceAnnuityPerc",        -1},    {"SubstanceAnnuityVal",         -1},
-                {"SubstanceAnnuityInterestPerc",1},     {"SubstanceAnnuityInterestVal", -1},
-                {"SubstanceAnnuityRepayPerc",   4.8},   {"SubstanceAnnuityRepayVal",    -1},
-                {"SubstanceOwnPerc",            -1},    {"SubstanceOwnVal",             -1},
-                {"SubstanceOwnInterestPerc",    4},     {"SubstanceOwnInterestVal",     -1},
-                {"SubstanceOwnReservePerc",     2},     {"SubstanceOwnReserveVal",      -1},
+                case CalcInputs.ExcistingSubstance:
+                    if (val > 100000)
+                        ret = new ValidationResult(false, "Eingabefehler",
+                            "Die vorhande Substanz darf 100.000 € nicht übersteigen.");
+                    else if (val <= 0)
+                        ret = new ValidationResult(false, "Eingabefehler",
+                            "Bitte geben Sie einen Wert größer als 0 ein.");
 
-                {"InvestmentPerc",              100},   {"InvestmentVal",               100},
-                {"InvestmentBorrowPerc",        50},    {"InvestmentBorrowVal",         -1},
-                {"InvestmentOwnPerc",           -1},    {"InvestmentOwnVal",            -1},
-                {"InvestAnnuityPerc",           -1},    {"InvestAnnuityVal",            -1},
-                {"InvestAnnuityInterestPerc",   1},     {"InvestAnnuityInterestVal",    -1}, 
-                {"InvestAnnuityRepayPerc",      4.8},   {"InvestAnnuityRepayVal",       -1},
-                {"InvestOwnPerc",               -1},    {"InvestOwnVal",                -1},
-                {"InvestOwnInterestPerc",       4},     {"InvestOwnInterestVal",        -1},
-                {"InvestOwnReservePerc",        2},     {"InvestOwnReserveVal",         -1},
+                    Calculate(type, option, val);
 
-                {"RentLossPerc",                2},     {"RentLossVal",                 -1},
-                {"MaintenancePerc",             1},     {"MaintenanceVal",              -1},
-                {"AdministrationPerFlat",       708},   {"AdministrationPerMeter",      -1},
-                {"AvarageFlatSize",             56},
+                    break;
+                case CalcInputs.ExcistingSubstanceBorrow:
 
-                {"DepreciationPerc",            -1},    {"DepreciationVal",             -1},
-                {"HgbPerc",                     0},     {"HgbVal",                      -1},
+                    break;
+                default:
+                    throw new ArgumentException("{type} " + "isnt implemented yet for validation.");
+            }
 
-                {"RentalCosts",                 -1},
-                {"SubstanceBorrowRepayLength",  -1},
-                {"SubstanceOwnReserveLength",   -1},
-                {"InvestBorrowRepayLength",     -1},
-                {"InvestOwnReserveLength",      -1}
-            };
-            Operations = new Dictionary<string, Action>()
+            return ret ?? new ValidationResult(true);
+        }
+
+        private void Calculate(CalcInputs type, CalcOption option, double value)
+        {
+            switch (type)
             {
-                {"ExistingSubstance",   new Action(CalcExistingSubstance)},   
-                {"Investment",          new Action(CalcInvestment)},
-            };
-
-            foreach (var op in Operations)
-            {
-                try
-                {
-                    op.Value.Invoke();
-                }
-                catch (Exception ex)
-                {
-                    throw ex;
-                }
+                case CalcInputs.ExcistingSubstance:
+                    ExcistingSubstance = value;
+                    break;
+                case CalcInputs.ExcistingSubstanceBorrow:
+                    if (option == CalcOption.Percent)
+                        ExistingSubstanceBorrowPerc = value;
+                    else if (option == CalcOption.m2)
+                    {
+                    }
+                    break;
             }
         }
 
-        private void CalcExistingSubstance()
+        public Dictionary<string, string> GetFrontEndStrings()
         {
-            Values["ExistingSubstanceBorrowVal"] =
-                Values["ExistingSubstanceBorrowPerc"] * Values["ExistingSubstanceVal"] / 100;
-            Values["ExistingSubstanceOwnPerc"] =
-                Values["ExistingSubstancePerc"] - Values["ExistingSubstanceBorrowPerc"];
-            Values["ExistingSubstanceOwnVal"] =
-                Values["ExistingSubstanceOwnPerc"] / 100 * Values["ExistingSubstanceVal"];
+            return new Dictionary<string, string>()
+            {
+                {"ExistingSubstancePerc",       String.Empty},   {"ExistingSubstanceVal",        String.Empty},
+                {"ExistingSubstanceBorrowPerc", String.Empty},   {"ExistingSubstanceBorrowVal",  String.Empty},
+                {"ExistingSubstanceOwnPerc",    String.Empty},   {"ExistingSubstanceOwnVal",     String.Empty},
+                {"SubstanceAnnuityPerc",        String.Empty},   {"SubstanceAnnuityVal",         String.Empty},
+                {"SubstanceAnnuityInterestPerc",String.Empty},   {"SubstanceAnnuityInterestVal", String.Empty},
+                {"SubstanceAnnuityRepayPerc",   String.Empty},   {"SubstanceAnnuityRepayVal",    String.Empty},
+                {"SubstanceOwnPerc",            String.Empty},   {"SubstanceOwnVal",             String.Empty},
+                {"SubstanceOwnInterestPerc",    String.Empty},   {"SubstanceOwnInterestVal",     String.Empty},
+                {"SubstanceOwnReservePerc",     String.Empty},   {"SubstanceOwnReserveVal",      String.Empty},
+
+                {"InvestmentPerc",              String.Empty},   {"InvestmentVal",               String.Empty},
+                {"InvestmentBorrowPerc",        String.Empty},   {"InvestmentBorrowVal",         String.Empty},
+                {"InvestmentOwnPerc",           String.Empty},   {"InvestmentOwnVal",            String.Empty},
+                {"InvestAnnuityPerc",           String.Empty},   {"InvestAnnuityVal",            String.Empty},
+                {"InvestAnnuityInterestPerc",   String.Empty},   {"InvestAnnuityInterestVal",    String.Empty},
+                {"InvestAnnuityRepayPerc",      String.Empty},   {"InvestAnnuityRepayVal",       String.Empty},
+                {"InvestOwnPerc",               String.Empty},   {"InvestOwnVal",                String.Empty},
+                {"InvestOwnInterestPerc",       String.Empty},   {"InvestOwnInterestVal",        String.Empty},
+                {"InvestOwnReservePerc",        String.Empty},   {"InvestOwnReserveVal",         String.Empty},
+
+                {"RentLossPerc",                String.Empty},   {"RentLossVal",                 String.Empty},
+                {"MaintenancePerc",             String.Empty},   {"MaintenanceVal",              String.Empty},
+                {"AdministrationPerFlat",       String.Empty},   {"AdministrationPerMeter",      String.Empty},
+                {"AvarageFlatSize",             String.Empty},
+                {"DepreciationPerc",            String.Empty},   {"DepreciationVal",             String.Empty},
+                {"HgbPerc",                     String.Empty},   {"HgbVal",                      String.Empty},
+
+                {"RentalCosts",                 String.Empty},
+                {"SubstanceBorrowRepayLength",  String.Empty},
+                {"SubstanceOwnReserveLength",   String.Empty},
+                {"InvestBorrowRepayLength",     String.Empty},
+                {"InvestOwnReserveLength",      String.Empty}
+
+            };
         }
-        private void CalcInvestment()
-        {
-            Values["InvestmentBorrowVal"] =
-                Values["InvestmentBorrowPerc"] * Values["InvestmentVal"] / 100;
-            Values["InvestmentOwnPerc"] =
-                Values["InvestmentPerc"] - Values["InvestmentBorrowPerc"];
-            Values["InvestmentOwnVal"] =
-                Values["InvestmentOwnPerc"] / 100 * Values["InvestmentVal"];
-        }
-
-        #region Properties
-
-        public CalculationService CalcService { get; private set; }
-        public Dictionary<string, Action> Operations { get; private set; }
-        public Dictionary<string, double> Values { get; private set; }
-
-
-        #endregion
     }
-
 }

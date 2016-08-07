@@ -53,7 +53,6 @@ namespace KMR.Control
                     colleague.MessageNotification(message, args);
             }
         }
-
     }
 }
 

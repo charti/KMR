@@ -23,5 +23,8 @@ namespace KMR.Common
 
         public static RoutedUICommand FocusInput
             = new RoutedUICommand("Focus the input field.", "FocusInput", typeof(Commands));
+
+        public static RoutedUICommand AcceptInput
+            = new RoutedUICommand("Accept input from Edit views.", "AcceptInput", typeof(Commands));
     }
 }

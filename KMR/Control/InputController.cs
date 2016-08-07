@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Windows.Controls;
 using System.Windows.Input;
 using System;
+using System.Windows;
 
 namespace KMR.Control
 {
@@ -12,7 +13,9 @@ namespace KMR.Control
 #region Member
 
         Grid _calcViewGrid;
-        UserControl _edit;
+        CalcEdit _edit;
+
+        CalcInputs CurrentEdit;
 
         private Dictionary<int, string[]> _comboItems = new Dictionary<int, string[]>()
         {
@@ -42,13 +45,25 @@ namespace KMR.Control
             _calcViewGrid = calcView;
             Mediator.Register(this, new[]
             {
-                Messages.Input
+                Messages.ValidationResult
             });
 
             CommandManager.RegisterClassCommandBinding(typeof(System.Windows.Controls.Control),
                 new CommandBinding(Commands.OpenEditView, Edit_Click));
             CommandManager.RegisterClassCommandBinding(typeof(System.Windows.Controls.Control),
                 new CommandBinding(Commands.FocusInput, Focus_Input));
+            CommandManager.RegisterClassCommandBinding(typeof(System.Windows.Controls.Control),
+                new CommandBinding(Commands.AcceptInput, Accept_Click));
+        }
+
+        private void Accept_Click(object sender, ExecutedRoutedEventArgs e)
+        {
+            var val = new Tuple<CalcInputs, CalcOption, string>(
+                CurrentEdit, 
+                (CalcOption)_edit.comboUnit.SelectedIndex,
+                _edit.txtInput.Text);
+
+            Mediator.NotifyColleagues(Messages.Validate, val);
         }
 
         private void Focus_Input(object sender, ExecutedRoutedEventArgs e)
@@ -59,6 +74,7 @@ namespace KMR.Control
         private void Edit_Click(object sender, ExecutedRoutedEventArgs e)
         {
             var row = ((Button)sender).GetValue(Grid.RowProperty);
+            CurrentEdit = (CalcInputs)row;
 
             if (_edit != null)
             {
@@ -76,6 +92,27 @@ namespace KMR.Control
 
         public override void MessageNotification(string message, object args)
         {
+            switch (message)
+            {
+                case Messages.ValidationResult:
+                    var result = args as KMR.Model.ValidationResult;
+                    ConsumeResult(result);
+                    break;
+                default:
+                    new NotImplementedException();
+                    break;
+            }
+        }
+
+        private void ConsumeResult(KMR.Model.ValidationResult result)
+        {
+            if (result.Success)
+            {
+                _calcViewGrid.Children.Remove(_edit);
+                _edit = null;
+            }
+            else
+                MessageBox.Show(result.ErrorMsg, result.ErrorCaption, MessageBoxButton.OK);
         }
     }
 }

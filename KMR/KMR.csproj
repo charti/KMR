@@ -63,13 +63,13 @@
     <Compile Include="Common\Commands.cs" />
     <Compile Include="Common\IColleague.cs" />
     <Compile Include="Common\Messages.cs" />
+    <Compile Include="Common\Types.cs" />
     <Compile Include="Control\CalcController.cs" />
     <Compile Include="Control\Controller.cs" />
     <Compile Include="Control\Mediator.cs" />
     <Compile Include="Control\MenuController.cs" />
     <Compile Include="Control\InputController.cs" />
     <Compile Include="Control\NaviController.cs" />
-    <Compile Include="Model\CalcTypes.cs" />
     <Compile Include="Model\CalculationHelpers.cs" />
     <Compile Include="Model\CalculationService.cs" />
     <Compile Include="Model\Calculator.cs" />

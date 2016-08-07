@@ -12,7 +12,8 @@ namespace KMR.Control
             Mediator.Register(this, new [] 
             {
                 Messages.PropertyListAdd,
-                Messages.UpdateFrontend
+                Messages.UpdateFrontend,
+                Messages.Validate
             });
 
             CommandManager.RegisterClassCommandBinding(typeof(System.Windows.Controls.Control),
@@ -30,6 +31,9 @@ namespace KMR.Control
                     break;
                 case Messages.UpdateFrontend:
                     updateView(args);
+                    break;
+                case Messages.Validate:
+
                     break;
             }
         }
@@ -56,12 +60,11 @@ namespace KMR.Control
                 new Dictionary<string, string>());
 
             foreach (var prop in _values.Keys)
-                propDictionary[type].Add(prop, "100,00");
+                propDictionary[type].Add(prop, _values[prop]);
         }
         private void updateView(object data)
         {
             var type = this.GetType().ToString();
-            //TODO nur neue elemente überschreiben und propertychanged aufrufen
             _values = ((Dictionary<string, Dictionary<string, string>>)data)[type];
             foreach (var prop in _values.Keys)
                 OnPropertyChanged(prop);
