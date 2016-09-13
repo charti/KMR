@@ -19,7 +19,6 @@ namespace KMR
             var app = (App)sender;
             app.MainWindow = new View.PageSwitcher();
             app.MainWindow.Show();
-            var calculator = new Calculator();
         }
     }
 }

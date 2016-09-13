@@ -54,16 +54,42 @@ namespace KMR.Control
                 new CommandBinding(Commands.FocusInput, Focus_Input));
             CommandManager.RegisterClassCommandBinding(typeof(System.Windows.Controls.Control),
                 new CommandBinding(Commands.AcceptInput, Accept_Click));
+            CommandManager.RegisterClassCommandBinding(typeof(System.Windows.Controls.Control),
+                new CommandBinding(Commands.AbortInput, Abort_Click));
+        }
+        private CalcOption TransformStringToCalcOption(string option)
+        {
+            switch (option)
+            {
+                case "m²":
+                case "Euro/m²":
+                    return CalcOption.M2;
+                case "Prozent":
+                    return CalcOption.Percent;
+                case "Euro/m² pro Monat":
+                    return CalcOption.Month;
+                case "Euro/m² pro Jahr":
+                    return CalcOption.Year;
+                case "Euro pro Wohneinheit":
+                    return CalcOption.Unit;
+                default:
+                    throw new ArgumentOutOfRangeException(option);
+            }
         }
 
         private void Accept_Click(object sender, ExecutedRoutedEventArgs e)
         {
             var val = new Tuple<CalcInputs, CalcOption, string>(
-                CurrentEdit, 
-                (CalcOption)_edit.comboUnit.SelectedIndex,
+                CurrentEdit,
+                TransformStringToCalcOption(_edit.comboUnit.SelectedValue.ToString()),
                 _edit.txtInput.Text);
 
             Mediator.NotifyColleagues(Messages.Validate, val);
+        }
+        private void Abort_Click(object sender, ExecutedRoutedEventArgs e)
+        {
+            _calcViewGrid.Children.Remove(_edit);
+            _edit = null;
         }
 
         private void Focus_Input(object sender, ExecutedRoutedEventArgs e)

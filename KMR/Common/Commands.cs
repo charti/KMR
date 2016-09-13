@@ -26,5 +26,8 @@ namespace KMR.Common
 
         public static RoutedUICommand AcceptInput
             = new RoutedUICommand("Accept input from Edit views.", "AcceptInput", typeof(Commands));
+
+        public static RoutedUICommand AbortInput
+            = new RoutedUICommand("Aborts input from Edit views.", "AbortInput", typeof(Commands));
     }
 }

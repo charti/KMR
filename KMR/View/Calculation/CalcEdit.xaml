@@ -31,7 +31,8 @@
             </StackPanel>
         </StackPanel>
         <StackPanel Margin="0,10" Orientation="Horizontal" HorizontalAlignment="Center">
-            <Button Name="btnAbort" HorizontalAlignment="Left" Content="Abbrechen" TabIndex="3"/>
+            <Button Name="btnAbort" HorizontalAlignment="Left" Content="Abbrechen" TabIndex="3"
+                    Command="common:Commands.AbortInput"/>
             <Label Width="120"/>
             <Button Name="btnAccept" HorizontalAlignment="Right" Content="Übernehmen" TabIndex="4"
                     Command="common:Commands.AcceptInput"/>

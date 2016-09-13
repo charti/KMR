@@ -3,12 +3,18 @@ using System;
 using System.Collections.Generic;
 using System.Windows.Input;
 
+using KMR.Model;
+
 namespace KMR.Control
 {
     public class CalcController : BaseController
     {
+        private Calculator Calc { get; set; }
+
         public CalcController()
         {
+            Calc = new Calculator();
+
             Mediator.Register(this, new [] 
             {
                 Messages.PropertyListAdd,
@@ -18,6 +24,8 @@ namespace KMR.Control
 
             CommandManager.RegisterClassCommandBinding(typeof(System.Windows.Controls.Control),
                 new CommandBinding(Commands.OpenMenuView, MenuBack_Click));
+
+            updateView(Calc.GetFrontEndStrings());
         }
 
         #region Notifications
@@ -30,9 +38,18 @@ namespace KMR.Control
                     exchangePropertyList(args);
                     break;
                 case Messages.UpdateFrontend:
-                    updateView(args);
+                    updateView(Calc.GetFrontEndStrings());
                     break;
                 case Messages.Validate:
+                    var input = args as Tuple<CalcInputs, CalcOption, string>;
+                    if (input == null)
+                        throw new InvalidCastException();
+
+                    var result = Calc.Validate(type: input.Item1, option: input.Item2, value: input.Item3);
+                    Mediator.NotifyColleagues(Messages.ValidationResult, result);
+
+                    if (result.Success)
+                        updateView(Calc.GetFrontEndStrings());
 
                     break;
             }
@@ -66,6 +83,13 @@ namespace KMR.Control
         {
             var type = this.GetType().ToString();
             _values = ((Dictionary<string, Dictionary<string, string>>)data)[type];
+            foreach (var prop in _values.Keys)
+                OnPropertyChanged(prop);
+        }
+
+        private void updateView(Dictionary<string, string> data)
+        {
+            _values = data;
             foreach (var prop in _values.Keys)
                 OnPropertyChanged(prop);
         }

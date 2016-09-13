@@ -38,6 +38,7 @@
     <StartupObject>KMR.App</StartupObject>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="nunit.framework, Version=3.0.5797.27534, Culture=neutral, PublicKeyToken=2638cd05610744eb, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
@@ -71,7 +72,6 @@
     <Compile Include="Control\InputController.cs" />
     <Compile Include="Control\NaviController.cs" />
     <Compile Include="Model\CalculationHelpers.cs" />
-    <Compile Include="Model\CalculationService.cs" />
     <Compile Include="Model\Calculator.cs" />
     <Compile Include="View\Calculation\CalcEdit.xaml.cs">
       <DependentUpon>CalcEdit.xaml</DependentUpon>

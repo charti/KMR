@@ -2,14 +2,14 @@
 {
     public enum CalcInputs
     {
-        ExcistingSubstance = 1,
-        ExcistingSubstanceBorrow = 2,
+        ExistingSubstance = 1,
+        ExistingSubstanceBorrow = 2,
         SubstanceAnnuityInterest = 6,
         SubstanceAnnuityRepay = 7,
         SubstanceOwnInterest = 10,
         SubstanceOwnReserve = 11,
-        InvestmentBorrow = 15,
-        InvestmentOwn = 16,
+        Investment = 15,
+        InvestmentBorrow = 16,
         InvestAnnuityInterest = 20,
         InvestAnnuityRepay = 21,
         InvestOwnInterest = 24,
@@ -24,7 +24,9 @@
     public enum CalcOption
     {
         Percent = 1,
-        m2 = 2,
-        year = 3
+        M2 = 2,
+        Year = 3,
+        Unit = 4,
+        Month = 5
     }
 }
