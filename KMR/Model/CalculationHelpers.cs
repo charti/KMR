@@ -48,10 +48,13 @@ namespace KMR.Model
                 InterestMonthly = Interest / RepayPeriodeMonths;
             }
         }
-    }
 
-    public class OwnAnnuity
-    {
+        public string GetFormattedPeriode()
+        {
+            var months = RepayPeriodeMonths % 12;
+            var years = RepayPeriodeMonths / 12;
 
+            return years + " Jahr/e " + months + " Monat/e";
+        }
     }
 }

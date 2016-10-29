@@ -12,7 +12,9 @@
 
     <DockPanel LastChildFill="True">
         <Menu DockPanel.Dock="Top" Height="50" VerticalAlignment="Top">
-            <Button Command="common:Commands.OpenMenuView" Content="Zurück"/>
+            <Button Command="common:Commands.OpenMenuView" Content="Zurück" />
+            <Button Command="common:Commands.Load" Content="Laden"/>
+            <Button Command="common:Commands.Save" Content="Speichern"/>
         </Menu>
         <ScrollViewer Padding="4" VerticalScrollBarVisibility="Auto">
             <Grid>

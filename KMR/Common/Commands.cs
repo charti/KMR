@@ -29,5 +29,11 @@ namespace KMR.Common
 
         public static RoutedUICommand AbortInput
             = new RoutedUICommand("Aborts input from Edit views.", "AbortInput", typeof(Commands));
+
+        public static RoutedUICommand Save
+            = new RoutedUICommand("Saves the current inputs to filesystem.", "Save", typeof(Commands));
+
+        public static RoutedUICommand Load
+            = new RoutedUICommand("Loads a KMR- save.", "Load", typeof(Commands));
     }
 }

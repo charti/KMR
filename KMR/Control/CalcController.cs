@@ -4,6 +4,8 @@ using System.Collections.Generic;
 using System.Windows.Input;
 
 using KMR.Model;
+using System.Windows.Forms;
+using System.IO;
 
 namespace KMR.Control
 {
@@ -24,8 +26,44 @@ namespace KMR.Control
 
             CommandManager.RegisterClassCommandBinding(typeof(System.Windows.Controls.Control),
                 new CommandBinding(Commands.OpenMenuView, MenuBack_Click));
+            CommandManager.RegisterClassCommandBinding(typeof(System.Windows.Controls.Control),
+                new CommandBinding(Commands.Save, Save_Click));
+            CommandManager.RegisterClassCommandBinding(typeof(System.Windows.Controls.Control),
+                new CommandBinding(Commands.Load, Load_Click));
 
             updateView(Calc.GetFrontEndStrings());
+        }
+
+        private void Load_Click(object sender, ExecutedRoutedEventArgs e)
+        {
+            try
+            {
+                var openFileDialog = new OpenFileDialog()
+                {
+                    Filter = "(*.kmr)|*.kmr"
+                };
+
+                Calculator loaded = null;
+                if (openFileDialog.ShowDialog() == DialogResult.OK)
+                    loaded = new Calculator(File.ReadAllLines(openFileDialog.FileName));
+
+                Calc = loaded;
+                updateView(Calc.GetFrontEndStrings());
+            }
+            catch
+            {
+                MessageBox.Show("Beim Laden ist ein unbekannter Fehler aufgetreten.", "Error");
+            }
+        }
+
+        private void Save_Click(object sender, ExecutedRoutedEventArgs e)
+        {
+            var saveFileDialog = new SaveFileDialog()
+            {
+                Filter = "(*.kmr)|*.kmr"
+            };
+            if (saveFileDialog.ShowDialog() == DialogResult.OK)
+                File.WriteAllText(saveFileDialog.FileName, Calc.Save());
         }
 
         #region Notifications
@@ -78,13 +116,6 @@ namespace KMR.Control
 
             foreach (var prop in _values.Keys)
                 propDictionary[type].Add(prop, _values[prop]);
-        }
-        private void updateView(object data)
-        {
-            var type = this.GetType().ToString();
-            _values = ((Dictionary<string, Dictionary<string, string>>)data)[type];
-            foreach (var prop in _values.Keys)
-                OnPropertyChanged(prop);
         }
 
         private void updateView(Dictionary<string, string> data)

@@ -58,15 +58,10 @@ namespace KMR.Model
         public double InvestmentOwnInterest { get; private set; } = 4;
         public double InvestmentOwnReserve { get; private set; } = 2;
         public double RentLossPerc { get; private set; } = 2;
-
-        // Hier
-        public double AnnuitySum
-        {
-            get { return ExistingAnnuity.AnnuityMonthly + ExistingOwnAnnuity.InterestMonthly +
+        public double AnnuitySum => ExistingAnnuity.AnnuityMonthly + ExistingOwnAnnuity.InterestMonthly +
                     InvestAnnuity.AnnuityMonthly + InvestOwnAnnuity.InterestMonthly +
                     AdministrationPerFlatMonth + MaintanceMonthly + InvestOwnAnnuity.RepayMonthly +
-                    ExistingAnnuity.RepayMonthly; }
-        }
+                    ExistingOwnAnnuity.RepayMonthly;
 
         public double RentLossVal => RentLossPerc == 0 ? 0 : AnnuitySum / (100 - RentLossPerc) *
             RentLossPerc;
@@ -84,10 +79,53 @@ namespace KMR.Model
         public Annuity InvestAnnuity { get; private set; }
         public Annuity ExistingOwnAnnuity { get; private set; }
         public Annuity InvestOwnAnnuity { get; private set; }
+        public double RentCost => AnnuitySum + RentLossVal;
 
         public Calculator()
         {
             CalculateAnnuities();
+        }
+
+        public Calculator(string[] data)
+        {
+            ExistingSubstance = Double.Parse(data[0]);
+            ExistingSubstanceBorrowPerc = Double.Parse(data[1]);
+            ExistingAnnuityInterest = Double.Parse(data[2]);
+            ExistingAnnuityRepay = Double.Parse(data[3]);
+            ExistingOwnInterest = Double.Parse(data[4]);
+            ExistingOwnReserve = Double.Parse(data[5]);
+            InvestmentVal = Double.Parse(data[6]);
+            InvestmentBorrowPerc = Double.Parse(data[7]);
+            InvestmentAnnuityInterest = Double.Parse(data[8]);
+            InvestmentAnnuityRepay = Double.Parse(data[9]);
+            InvestmentOwnInterest = Double.Parse(data[10]);
+            InvestmentOwnReserve = Double.Parse(data[11]);
+            RentLossPerc = Double.Parse(data[12]);
+            AdministrationPerFlatAnual = Double.Parse(data[13]);
+            MaintancePerc = Double.Parse(data[14]);
+            AvarageFlatSize = Double.Parse(data[15]);
+
+            CalculateAnnuities();
+        }
+
+        public string Save()
+        {
+            return $@"{ExistingSubstance}
+{ExistingSubstanceBorrowPerc}
+{ExistingAnnuityInterest}
+{ExistingAnnuityRepay}
+{ExistingOwnInterest}
+{ExistingOwnReserve}
+{InvestmentVal}
+{InvestmentBorrowPerc}
+{InvestmentAnnuityInterest}
+{InvestmentAnnuityRepay}
+{InvestmentOwnInterest}
+{InvestmentOwnReserve}
+{RentLossPerc}
+{AdministrationPerFlatAnual}
+{MaintancePerc}
+{AvarageFlatSize}";
         }
 
         public Dictionary<string, string> GetFrontEndStrings()
@@ -139,16 +177,12 @@ namespace KMR.Model
                 {"AdministrationPerFlat", AdministrationPerFlatAnual.ToString("#,##0.00 €/m²")},
                 {"AdministrationPerMeter", AdministrationPerFlatMonth.ToString("#,##0.00 €/m²")},
                 {"AvarageFlatSize", AvarageFlatSize.ToString("0 m²")},
-                {"DepreciationPerc",            String.Empty},
-                {"DepreciationVal",             String.Empty},
-                {"HgbPerc",                     String.Empty},
-                {"HgbVal",                      String.Empty},
 
-                {"RentalCosts",                 String.Empty},
-                {"SubstanceBorrowRepayLength",  String.Empty},
-                {"SubstanceOwnReserveLength",   String.Empty},
-                {"InvestBorrowRepayLength",     String.Empty},
-                {"InvestOwnReserveLength",      String.Empty}
+                {"RentalCosts", RentCost.ToString("#,##0.00 €/m²")},
+                {"SubstanceBorrowRepayLength", ExistingAnnuity.GetFormattedPeriode()},
+                {"SubstanceOwnReserveLength", ExistingOwnAnnuity.GetFormattedPeriode()},
+                {"InvestBorrowRepayLength", InvestAnnuity.GetFormattedPeriode()},
+                {"InvestOwnReserveLength", InvestOwnAnnuity.GetFormattedPeriode()}
 
             };
         }
